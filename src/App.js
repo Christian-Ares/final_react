@@ -7,6 +7,8 @@ import Actividades from './components/Actividades'
 import Cursos from './components/Cursos'
 import Contacto from './components/Contacto'
 import Servicios from './components/Servicios'
+import SignUp from './components/SignUp';
+import LogIn from './components/LogIn';
 
 
 function App() {
@@ -21,6 +23,8 @@ function App() {
         <Route exact path='/cursos' component={Cursos} />
         <Route exact path='/contacto' component={Contacto} />
         <Route exact path='/servicios' component={Servicios} />
+        {/* <Route exact path='/signup' component={SignUp} /> */}
+        {/* <Route exact path='/login' component={LogIn} /> */}
       </Switch>
     </div>
   );

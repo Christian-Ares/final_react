@@ -10,7 +10,7 @@ const SignUp = (props)=>{
         <input 
           type="text" 
           name="username" 
-          value={props.newUser.username} 
+          value={props.newParent.username} 
           onChange={(event)=>props.changeHandlerSignUp(event.target)}
         />
 
@@ -18,7 +18,7 @@ const SignUp = (props)=>{
         <input 
           type="password" 
           name="password" 
-          value={props.newUser.password} 
+          value={props.newParent.password} 
           onChange={(event)=>props.changeHandlerSignUp(event.target)}
         />
 

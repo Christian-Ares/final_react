@@ -11,7 +11,7 @@ const LogIn = (props)=>{
         <input 
           type="text" 
           name="username" 
-          value={props.loggingUser.username} 
+          value={props.loggingParent.username} 
           onChange={(event)=>props.changeHandlerLogIn(event.target)}
         />
 
@@ -19,7 +19,7 @@ const LogIn = (props)=>{
         <input 
           type="password" 
           name="password" 
-          value={props.loggingUser.password} 
+          value={props.loggingParent.password} 
           onChange={(event)=>props.changeHandlerLogIn(event.target)}
         />
 
