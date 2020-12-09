@@ -8,8 +8,8 @@ import Actividades from './components/Actividades'
 import Cursos from './components/Cursos'
 import Contacto from './components/Contacto'
 import Servicios from './components/Servicios'
-import SignUp from './components/SignUp';
-import LogIn from './components/LogIn';
+import SignUp from './components/auth/SignUp';
+import LogIn from './components/auth/LogIn';
 
 class App extends React.Component {
 
@@ -53,7 +53,7 @@ class App extends React.Component {
         <Route exact path='/contacto' component={Contacto} />
         <Route exact path='/servicios' component={Servicios} />
         <Route exact path='/signup' render={() => <SignUp getUser={this.getTheUser}/>}/>
-        {/* <Route exact path='/login' component={LogIn} /> */}
+        <Route exact path='/login' render={() => <LogIn getUser={this.getTheUser}/>}/>
       </Switch>
     </div>
   );
