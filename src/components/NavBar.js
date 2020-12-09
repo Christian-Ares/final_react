@@ -39,9 +39,9 @@ class NavBar extends Component {
               return(
             <nav className="nav-style">
             <ul>  
+            <li><Link to='/'>Home</Link></li>
             <li><Link to='/signup'>Acceso Padres</Link></li>
             <li><Link to='/login'>Iniciar Sesión</Link></li>
-
           </ul>
         </nav>
       )
