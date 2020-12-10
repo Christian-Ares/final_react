@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import AuthService from './auth/auth-service';
 
 class NavBar extends Component {
   constructor(props){
     super(props);
     this.state = { loggedInUser: null };
+    this.service = new AuthService();
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({...this.state, loggedInUser: nextProps["userInSession"]})
   }
 
@@ -14,7 +16,7 @@ class NavBar extends Component {
     this.service.logout()
     .then(() => {
       this.setState({ loggedInUser: null });
-      this.props.getUser(null);  
+      this.props.getTheUser(null);  
     })
   }
 

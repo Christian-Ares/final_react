@@ -43,7 +43,7 @@ class App extends React.Component {
   render(){
       return (
     <div className="App">
-      <NavBar userInSession={this.state.loggedInUser} />
+      <NavBar userInSession={this.state.loggedInUser} getTheUser={this.getTheUser} />
 
       <Switch>
         <Route exact path='/' component={Home} />
