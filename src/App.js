@@ -10,6 +10,7 @@ import Contacto from './components/Contacto'
 import Servicios from './components/Servicios'
 import SignUp from './components/auth/SignUp';
 import LogIn from './components/auth/LogIn';
+import ProtectedRoute from './components/auth/ProtectedRoute'
 
 class App extends React.Component {
 
@@ -47,11 +48,11 @@ class App extends React.Component {
 
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route exact path='/aulas' component={Aulas} />
-        <Route exact path='/actividades' component={Actividades} />
-        <Route exact path='/cursos' component={Cursos} />
-        <Route exact path='/contacto' component={Contacto} />
-        <Route exact path='/servicios' component={Servicios} />
+        <ProtectedRoute exact path='/aulas' component={Aulas} />
+        <ProtectedRoute exact path='/actividades' component={Actividades} />
+        <ProtectedRoute exact path='/cursos' component={Cursos} />
+        <ProtectedRoute exact path='/contacto' component={Contacto} />
+        <ProtectedRoute exact path='/servicios' component={Servicios} />
         <Route exact path='/signup' render={() => <SignUp getUser={this.getTheUser}/>}/>
         <Route exact path='/login' render={() => <LogIn getUser={this.getTheUser}/>}/>
       </Switch>
