@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AuthService from './auth/auth-service';
+import './NavBar.css'
 
 class NavBar extends Component {
   constructor(props){
@@ -40,7 +41,7 @@ class NavBar extends Component {
             )
             } else {
               return(
-            <nav className="nav-style">
+            <nav className="logs">
             <ul>  
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/signup'>Acceso Padres</Link></li>
