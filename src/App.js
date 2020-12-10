@@ -43,23 +43,22 @@ class App extends React.Component {
 
   render(){
       return (
-    <div className="App">
-      <NavBar userInSession={this.state.loggedInUser} getTheUser={this.getTheUser} />
+        <div className="App">
+          <NavBar userInSession={this.state.loggedInUser} getTheUser={this.getTheUser} />
 
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <ProtectedRoute exact path='/aulas' component={Aulas} />
-        <ProtectedRoute exact path='/actividades' component={Actividades} />
-        <ProtectedRoute exact path='/cursos' component={Cursos} />
-        <ProtectedRoute exact path='/contacto' component={Contacto} />
-        <ProtectedRoute exact path='/servicios' component={Servicios} />
-        <Route exact path='/signup' render={() => <SignUp getUser={this.getTheUser}/>}/>
-        <Route exact path='/login' render={() => <LogIn getUser={this.getTheUser}/>}/>
-      </Switch>
-    </div>
-  );
-}
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <ProtectedRoute exact path='/aulas' component={Aulas} />
+            <ProtectedRoute exact path='/actividades' component={Actividades} />
+            <ProtectedRoute exact path='/cursos' component={Cursos} />
+            <ProtectedRoute exact path='/contacto' component={Contacto} />
+            <ProtectedRoute exact path='/servicios' component={Servicios} />
+            <Route exact path='/signup' render={() => <SignUp getUser={this.getTheUser}/>}/>
+            <Route exact path='/login' render={() => <LogIn getUser={this.getTheUser}/>}/>
+          </Switch>
+        </div>
+      );
+    }
   }
-
 
 export default App;

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import AuthService from './auth-service.js'
-// import { Link } from 'react-router-dom'
 
 class SignUp extends Component {
   constructor(props){
@@ -99,6 +98,5 @@ class SignUp extends Component {
       )
     }
   }
-
 
 export default SignUp;
