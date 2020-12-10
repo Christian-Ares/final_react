@@ -11,12 +11,14 @@ import Servicios from './components/Servicios'
 import SignUp from './components/auth/SignUp';
 import LogIn from './components/auth/LogIn';
 import ProtectedRoute from './components/auth/ProtectedRoute'
+import AuthService from './components/auth/auth-service';
 
 class App extends React.Component {
 
   constructor(props){
     super(props)
     this.state = { loggedInUser: null };
+    this.service = new AuthService();
   }
 
   fetchUser(){
@@ -42,17 +44,18 @@ class App extends React.Component {
   }
 
   render(){
+    this.fetchUser()
       return (
         <div className="App">
           <NavBar userInSession={this.state.loggedInUser} getTheUser={this.getTheUser} />
 
           <Switch>
             <Route exact path='/' component={Home} />
-            <ProtectedRoute exact path='/aulas' component={Aulas} />
-            <ProtectedRoute exact path='/actividades' component={Actividades} />
-            <ProtectedRoute exact path='/cursos' component={Cursos} />
-            <ProtectedRoute exact path='/contacto' component={Contacto} />
-            <ProtectedRoute exact path='/servicios' component={Servicios} />
+            <ProtectedRoute userInSession={true} exact path='/aulas' component={Aulas} />
+            <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/actividades' component={Actividades} />
+            <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/cursos' component={Cursos} />
+            <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/contacto' component={Contacto} />
+            <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/servicios' component={Servicios} />
             <Route exact path='/signup' render={() => <SignUp getUser={this.getTheUser}/>}/>
             <Route exact path='/login' render={() => <LogIn getUser={this.getTheUser}/>}/>
           </Switch>

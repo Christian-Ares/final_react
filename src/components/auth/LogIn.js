@@ -16,6 +16,7 @@ class LogIn extends Component {
     this.service.login(username, password)
     .then( response => {
         this.setState({ username: "", password: "" });
+        console.log(response)
         this.props.getUser(response)
     })
     .catch( error => console.log(error) )
