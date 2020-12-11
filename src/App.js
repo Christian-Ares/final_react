@@ -12,6 +12,7 @@ import SignUp from './components/auth/SignUp';
 import LogIn from './components/auth/LogIn';
 import ProtectedRoute from './components/auth/ProtectedRoute'
 import AuthService from './components/auth/auth-service';
+import Profile from './components/Profile'
 
 class App extends React.Component {
 
@@ -55,6 +56,7 @@ class App extends React.Component {
             <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/cursos' component={Cursos} />
             <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/contacto' component={Contacto} />
             <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/servicios' component={Servicios} />
+            <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/profile' component={Profile} />
             <Route exact path='/signup' render={() => <SignUp getUser={this.getTheUser}/>}/>
             <Route exact path='/login' render={() => <LogIn getUser={this.getTheUser}/>}/>
           </Switch>

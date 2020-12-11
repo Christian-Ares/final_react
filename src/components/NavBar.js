@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import AuthService from './auth/auth-service';
 import './NavBar.css'
-import Navbar from 'react-bootstrap/Navbar'
-import Button from 'react-bootstrap/Button'
-import FormControl from 'react-bootstrap/FormControl'
-import Form from 'react-bootstrap/Form'
-import NavDropdown from 'react-bootstrap/DropdownMenu'
-import Nav from 'react-bootstrap/Nav'
+// import Navbar from 'react-bootstrap/Navbar'
+// import Button from 'react-bootstrap/Button'
+// import FormControl from 'react-bootstrap/FormControl'
+// import Form from 'react-bootstrap/Form'
+// import NavDropdown from 'react-bootstrap/DropdownMenu'
+// import Nav from 'react-bootstrap/Nav'
 
 
 class NavBar extends Component {
@@ -64,6 +64,7 @@ class NavBar extends Component {
             <li><Link to='/cursos'>Cursos</Link></li>
             <li><Link to='/servicios'>Servicios</Link></li>
             <li><Link to='/contacto'>Contacto</Link></li>
+            <li><Link to='/profile'>Perfil</Link></li>
             <li><Link to='/'>
             <button onClick={()=>this.logoutUser()}>Cerrar Sesión</button>
             </Link></li>
