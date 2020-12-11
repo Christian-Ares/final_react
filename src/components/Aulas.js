@@ -5,7 +5,10 @@ const Aulas = () => {
     <div>
       <div>
        
-        <h1>Welcome to Aulas</h1>
+        <h1>Aquí vemos todas las aulas</h1>
+        <p>0-1</p>
+        <p>1-2</p>
+        <p>2-3</p>
         
       </div>
     </div>

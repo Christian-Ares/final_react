@@ -5,7 +5,7 @@ const Servicios = () => {
     <div>
       <div>
        
-        <h1>Welcome to Servicios</h1>
+        <h1>Aquí servicios ofertados por el centro, tales como comedor, y buenos días cole.</h1>
         
       </div>
     </div>

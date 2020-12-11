@@ -5,7 +5,7 @@ const Cursos = () => {
     <div>
       <div>
        
-        <h1>Welcome to Cursos</h1>
+        <h1>Crusos para padres</h1>
         
       </div>
     </div>

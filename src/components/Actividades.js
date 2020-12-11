@@ -5,7 +5,7 @@ const Actividades = () => {
     <div>
       <div>
        
-        <h1>Welcome to Actividades</h1>
+        <h1>Actividades para los niños</h1>
         
       </div>
     </div>
