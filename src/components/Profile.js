@@ -97,7 +97,8 @@ class Profile extends Component {
                     <input
                     type="checkbox"
                     name="lunch"
-                    value="lunch"
+                    value={this.state.lunch}
+                    onChange={(e)=>this.handleChange(e)}
                     />
 
                     <br/>
@@ -107,7 +108,8 @@ class Profile extends Component {
                     <input
                     type="checkbox"
                     name="morning"
-                    value="morning"
+                    value={this.state.morning}
+                    onChange={(e)=>this.handleChange(e)}
                     />
 
                     <br/>

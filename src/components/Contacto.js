@@ -12,10 +12,10 @@ const Contacto = () => {
         <iframe
          width="425"
           height="350"
-           frameborder="0" 
+           frameBorder="0" 
            scrolling="no"
-            marginheight="0" 
-            marginwidth="0" 
+            marginHeight="0" 
+            marginWidth="0" 
             src="https://www.openstreetmap.org/export/embed.html?bbox=-0.1407676935195923%2C38.57593798967837%2C-0.1336866617202759%2C38.57977102759976&amp;layer=mapnik&amp;marker=38.57785453420666%2C-0.13722717761993408">
             </iframe>
             <br/>
