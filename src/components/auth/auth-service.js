@@ -29,6 +29,11 @@ class AuthService {
     .then(response => response.data)
   }
 
+  add_child = async (name, lastName, gender, birth, lunch, morning) =>{
+    const response = await this.service.post("/add_child", { name, lastName, gender, birth, lunch, morning });
+    return response.data;
+  }
+
 }
 
 export default AuthService;

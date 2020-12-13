@@ -45,6 +45,7 @@ class App extends React.Component {
   }
 
   render(){
+    this.fetchUser()
       return (
         <div className="App">
           <NavBar userInSession={this.state.loggedInUser} getTheUser={this.getTheUser} />

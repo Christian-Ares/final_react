@@ -5,7 +5,7 @@ class SignUp extends Component {
   constructor(props){
     super(props);
     this.state = {name: '', lastName: '', address: '', username: '', password: ''};
-    this.service = new AuthService()
+    this.service = new AuthService();
   }
 
   handleFormSubmit = (event) => {
