@@ -34,8 +34,8 @@ class AuthService {
     return response.data;
   }
 
-  edit_parent = ()=>{
-    const response =  this.service.get("/edit_parent")
+  edit_parent = (address)=>{
+    const response =  this.service.post("/edit_parent/:id", {address})
     return response.data
   }
 

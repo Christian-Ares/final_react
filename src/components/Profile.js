@@ -45,21 +45,33 @@ class Profile extends Component {
   })
   .catch(err => console.log(err))
  }
-    handleChange = (e) => { 
-        console.log(e.target.checked) 
+    handleChange = (e) => {
         const {name, value} = e.target;
         this.setState({[name]: value, lunch: e.target.checked, morning: e.target.checked });
       }
 
     render(){
+        console.log(this.props.loggedInUser)
         return (
             <div>
-            <form onSubmit={this.handleFormSubmit.edit_parent}>
                 <h1>Bienvenido, {this.props.loggedInUser.name}</h1>
-                <h2>{this.props.loggedInUser.address}</h2>
                 <h2>{this.props.loggedInUser.lastName}</h2>
-                <button type="submit">Editar datos</button>
-            </form>
+                <h2>{this.props.loggedInUser.address}</h2>
+
+                <form onSubmit={this.handleFormSubmit.edit_parent}>
+                
+                    <label htmlFor="address">Direccion:</label>
+                        <input
+                        type="text"
+                        name="address"
+                        value={this.props.loggedInUser.address}
+                        onChange={(e)=>this.handleChange(e)}
+                        />
+
+                    <button type="submit">Editar direccion</button>
+
+                </form>
+
                 <br/>
 
                 <form onSubmit={this.handleFormSubmit}>
