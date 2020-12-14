@@ -9,6 +9,9 @@ const Contacto = () => {
         <h1>Aquí telefono del colegio, email, ubicacion, y distintos papeles</h1>
         <h2>(+34) - 651-504-840</h2>
         <h2>christianaresvillan@hotmail.com</h2>
+        <br/>
+          {/* <button><a href='#'>Documento</a></button> */}
+        <br/>
         <iframe
          width="425"
           height="350"
