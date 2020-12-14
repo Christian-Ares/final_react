@@ -45,6 +45,8 @@ class Profile extends Component {
         return (
             <div>
                 <h1>Bienvenido, {this.props.loggedInUser.name}</h1>
+                <h2>{this.props.loggedInUser.address}</h2>
+                <h2>{this.props.loggedInUser.lastName}</h2>
                 <button type="submit">Editar datos</button>
 
                 <br/>
