@@ -34,21 +34,32 @@ class Profile extends Component {
         console.log(response)
     })
     .catch( error => console.log(error) )
-  }
- 
-    handleChange = (e) => {  
+  
+
+  this.service.edit_parent(this.props.loggedInUser.address)
+  .then(response=>{
+      this.setState({
+          address: ""
+      })
+      console.log(response)
+  })
+  .catch(err => console.log(err))
+ }
+    handleChange = (e) => { 
+        console.log(e.target.checked) 
         const {name, value} = e.target;
-        this.setState({[name]: value});
+        this.setState({[name]: value, lunch: e.target.checked, morning: e.target.checked });
       }
 
     render(){
         return (
             <div>
+            <form onSubmit={this.handleFormSubmit.edit_parent}>
                 <h1>Bienvenido, {this.props.loggedInUser.name}</h1>
                 <h2>{this.props.loggedInUser.address}</h2>
                 <h2>{this.props.loggedInUser.lastName}</h2>
                 <button type="submit">Editar datos</button>
-
+            </form>
                 <br/>
 
                 <form onSubmit={this.handleFormSubmit}>

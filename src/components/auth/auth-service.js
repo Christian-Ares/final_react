@@ -34,6 +34,11 @@ class AuthService {
     return response.data;
   }
 
+  edit_parent = ()=>{
+    const response =  this.service.get("/edit_parent")
+    return response.data
+  }
+
 }
 
 export default AuthService;
