@@ -9,8 +9,8 @@ class AuthService {
     this.service = service;
   }
 
-  signup = (name, lastName, address, username, password) => {
-    return this.service.post('/signup', {name, lastName, address, username, password})
+  signup = (name, lastName, address, phone, username, password) => {
+    return this.service.post('/signup', {name, lastName, address, phone, username, password})
     .then(response => response.data)
   }
 
@@ -34,11 +34,10 @@ class AuthService {
     .then(response => response.data)
   }
 
-  edit_parent = (id, address)=>{
-    return this.service.post(`/edit_parent/${id}`, {address})
+  edit_parent = (id, address, phone)=>{
+    return this.service.post(`/edit_parent/${id}`, {phone, address })
     .then(response => response.data)
   }
-
 }
 
 export default AuthService;

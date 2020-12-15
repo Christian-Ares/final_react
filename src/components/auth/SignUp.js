@@ -4,26 +4,28 @@ import AuthService from './auth-service.js'
 class SignUp extends Component {
   constructor(props){
     super(props);
-    this.state = {name: '', lastName: '', address: '', username: '', password: ''};
+    this.state = {name: '', lastName: '', address: '', phone: '', username: '', password: ''};
     this.service = new AuthService();
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
+    const name = this.state.name;
+    const lastName = this.state.lastName;
+    const address = this.state.address;
+    const phone = this.state.phone;
     const username = this.state.username;
     const password = this.state.password;
-    const name = this.state.name;
-    const address = this.state.address
-    const lastName = this.state.lastName
-   
-    this.service.signup(name, lastName, address, username, password)
+
+    this.service.signup(name, lastName, address, phone, username, password)
     .then( response => {
         this.setState({
-            username: "", 
-            password: "",
-            name: "",
-            address: "",
-            lastName: ""
+            name: '',
+            lastName: '',
+            address: '',
+            phone: '',
+            username: '', 
+            password: '',
         });
         this.props.getUser(response)
     })
@@ -66,6 +68,16 @@ class SignUp extends Component {
               type="text" 
               name="address" 
               value={this.state.address} 
+              onChange={(event)=>this.handleChange(event)}
+            />
+
+<br/>
+
+            <label htmlFor="phone">Teléfono: </label>
+            <input 
+              type="text" 
+              name="phone" 
+              value={this.state.phone} 
               onChange={(event)=>this.handleChange(event)}
             />
 

@@ -6,7 +6,16 @@ class Profile extends Component {
     
     constructor(props){
         super(props);
-        this.state = {name: '', lastName: '', gender: '', birth: '', lunch: '', morning: '', loggedInUser: this.props.loggedInUser, address: '' }
+        this.state = {
+            name: '',
+            lastName: '',
+            gender: '',
+            birth: '',
+            lunch: '',
+            morning: '',
+            loggedInUser: this.props.loggedInUser,
+            address: '',
+            phone: '' }
         this.service = new AuthService();
     }
 
@@ -41,7 +50,20 @@ class Profile extends Component {
         this.service.edit_parent(this.state.loggedInUser._id, address)
         .then(response=>{
             this.setState({
-                address: ""
+                address: ''
+            })
+            this.fetchUser()
+            })
+            .catch(err => console.log(err))
+    }
+
+    handleFormPhone = (e) => {
+        e.preventDefault();
+        const phone = this.state.phone
+        this.service.edit_parent(this.state.loggedInUser._id, phone)
+        .then(response=>{
+            this.setState({
+                phone: ''
             })
             this.fetchUser()
             })
@@ -86,6 +108,20 @@ class Profile extends Component {
                         />
 
                     <button type="submit">Editar direccion</button>
+
+                </form>
+
+                <form onSubmit={this.handleFormPhone}>
+                
+                <label htmlFor="phone">Teléfono:</label>
+                    <input
+                    type="text"
+                    name="phone"
+                    value={this.state.phone}
+                    onChange={(e)=>this.handleChange(e)}
+                    />
+
+                <button type="submit">Editar teléfono</button>
 
                 </form>
 
