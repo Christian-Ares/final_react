@@ -16,6 +16,7 @@ class NavBar extends Component {
     this.state = { loggedInUser: null };
     this.service = new AuthService();
   }
+  
   UNSAFE_componentWillReceiveProps(nextProps) {
     this.setState({...this.state, loggedInUser: nextProps["userInSession"]})
   }

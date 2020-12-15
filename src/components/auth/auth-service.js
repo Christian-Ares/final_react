@@ -29,14 +29,14 @@ class AuthService {
     .then(response => response.data)
   }
 
-  add_child = async (name, lastName, gender, birth, lunch, morning) =>{
-    const response = await this.service.post("/add_child", { name, lastName, gender, birth, lunch, morning });
-    return response.data;
+  add_child = (name, lastName, gender, birth, lunch, morning) =>{
+    return this.service.post("/add_child", { name, lastName, gender, birth, lunch, morning })
+    .then(response => response.data)
   }
 
-  edit_parent = (address)=>{
-    const response =  this.service.post("/edit_parent/:id", {address})
-    return response.data
+  edit_parent = (id, address)=>{
+    return this.service.post(`/edit_parent/${id}`, {address})
+    .then(response => response.data)
   }
 
 }

@@ -6,8 +6,7 @@ class Profile extends Component {
     
     constructor(props){
         super(props);
-        this.state = {loggedInUser: true };
-        this.state = {name: '', lastName: '', gender: '', birth: '', lunch: '', morning: ''}
+        this.state = {name: '', lastName: '', gender: '', birth: '', lunch: '', morning: '', loggedInUser: this.props.loggedInUser, address: '' }
         this.service = new AuthService();
     }
 
@@ -34,37 +33,55 @@ class Profile extends Component {
         console.log(response)
     })
     .catch( error => console.log(error) )
-  
+    }
+    
+    handleFormAddress = (e) => {
+        e.preventDefault();
+        const address = this.state.address
+        this.service.edit_parent(this.state.loggedInUser._id, address)
+        .then(response=>{
+            this.setState({
+                address: ""
+            })
+            this.fetchUser()
+            })
+            .catch(err => console.log(err))
+    }
 
-  this.service.edit_parent(this.props.loggedInUser.address)
-  .then(response=>{
-      this.setState({
-          address: ""
-      })
-      console.log(response)
-  })
-  .catch(err => console.log(err))
- }
+    fetchUser(){
+          this.service.loggedin()
+          .then(response =>{
+            this.setState({
+              loggedInUser:  response
+            })
+            this.props.getTheUser(response) 
+          })
+          .catch( err =>{
+            this.setState({
+              loggedInUser:  false
+            }) 
+          })
+      }
+
     handleChange = (e) => {
         const {name, value} = e.target;
         this.setState({[name]: value, lunch: e.target.checked, morning: e.target.checked });
       }
 
     render(){
-        console.log(this.props.loggedInUser)
         return (
             <div>
-                <h1>Bienvenido, {this.props.loggedInUser.name}</h1>
-                <h2>{this.props.loggedInUser.lastName}</h2>
-                <h2>{this.props.loggedInUser.address}</h2>
+                <h1>Bienvenido, {this.state.loggedInUser.name}</h1>
+                <h2>{this.state.loggedInUser.lastName}</h2>
+                <h2>{this.state.loggedInUser.address}</h2>
 
-                <form onSubmit={this.handleFormSubmit.edit_parent}>
+                <form onSubmit={this.handleFormAddress}>
                 
                     <label htmlFor="address">Direccion:</label>
                         <input
                         type="text"
                         name="address"
-                        value={this.props.loggedInUser.address}
+                        value={this.state.address}
                         onChange={(e)=>this.handleChange(e)}
                         />
 

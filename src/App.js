@@ -58,7 +58,7 @@ class App extends React.Component {
             <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/cursos' component={Cursos} />
             <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/contacto' component={Contacto} />
             <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/servicios' component={Servicios} />
-            <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/profile' component={Profile} />
+            <ProtectedRoute userInSession={this.state.loggedInUser} getTheUser={this.getTheUser} exact path='/profile' component={Profile} />
             <Route exact path='/signup' render={() => <SignUp getUser={this.getTheUser}/>}/>
             <Route exact path='/login' render={() => <LogIn getUser={this.getTheUser}/>}/>
           </Switch>
