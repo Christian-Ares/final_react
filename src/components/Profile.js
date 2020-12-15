@@ -65,6 +65,7 @@ class Profile extends Component {
             this.setState({
                 phone: ''
             })
+            console.log(response)
             this.fetchUser()
             })
             .catch(err => console.log(err))
@@ -96,6 +97,7 @@ class Profile extends Component {
                 <h1>Bienvenido, {this.state.loggedInUser.name}</h1>
                 <h2>{this.state.loggedInUser.lastName}</h2>
                 <h2>{this.state.loggedInUser.address}</h2>
+                <h2>{this.state.loggedInUser.phone}</h2>
 
                 <form onSubmit={this.handleFormAddress}>
                 

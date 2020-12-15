@@ -19,12 +19,12 @@ class AuthService {
     .then(response => response.data)
   }
 
-  loggedin = () =>{
+  loggedin = () => {
     return this.service.get("/loggedin")
     .then(response => response.data)
   }
 
-  logout = () =>{
+  logout = () => {
     return this.service.post("/logout", {})
     .then(response => response.data)
   }
@@ -34,7 +34,7 @@ class AuthService {
     .then(response => response.data)
   }
 
-  edit_parent = (id, address, phone)=>{
+  edit_parent = (id, address, phone) => {
     return this.service.post(`/edit_parent/${id}`, {phone, address })
     .then(response => response.data)
   }
