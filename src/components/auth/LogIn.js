@@ -51,6 +51,8 @@ class LogIn extends Component {
             onChange={(event)=>this.handleChange(event)}
           />
 
+          <br/>
+
           <button type="submit">Log In</button>
 
         </form>
