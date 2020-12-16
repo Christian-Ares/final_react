@@ -41,6 +41,8 @@ class LogIn extends Component {
             onChange={(event)=>this.handleChange(event)}
           />
 
+          <br/>
+
           <label htmlFor="password">Contraseña: </label>
           <input 
             type="password" 
