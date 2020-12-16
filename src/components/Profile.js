@@ -47,7 +47,7 @@ class Profile extends Component {
     handleFormAddress = (e) => {
         e.preventDefault();
         const address = this.state.address
-        this.service.edit_address(this.state.loggedInUser._id, {address})
+        this.service.edit_address(this.state.loggedInUser._id, address)
         .then(response=>{
             this.setState({
                 address: ''
@@ -60,7 +60,7 @@ class Profile extends Component {
     handleFormPhone = (e) => {
         e.preventDefault();
         const phone = this.state.phone
-        this.service.edit_phone(this.state.loggedInUser._id, {phone})
+        this.service.edit_phone(this.state.loggedInUser._id, phone)
         .then(response=>{
             this.setState({
                 phone: ''

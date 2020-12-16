@@ -36,12 +36,12 @@ class AuthService {
   }
 
   edit_address = (id, address) => {
-    return this.service.post(`/edit_address/${id}`, {address})
+    return this.service.post(`/edit_address/${id}`, address)
     .then(response => response.data)
   }
 
   edit_phone = (id, phone) => {
-    return this.service.post(`/edit_phone/${id}`, {phone})
+    return this.service.post(`/edit_phone/${id}`, phone)
     .then(response => response.data)
   }
 
