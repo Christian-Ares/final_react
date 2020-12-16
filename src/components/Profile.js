@@ -11,8 +11,8 @@ class Profile extends Component {
             lastName: '',
             gender: '',
             birth: '',
-            lunch: '',
-            morning: '',
+            lunch: false,
+            morning: false,
             loggedInUser: this.props.loggedInUser,
             address: '',
             phone: '' }
@@ -36,8 +36,8 @@ class Profile extends Component {
             lastName: "",
             gender: "",
             birth: "",
-            lunch: "",
-            morning: ""
+            lunch: false,
+            morning: false
         });
         console.log(response)
     })
@@ -47,7 +47,7 @@ class Profile extends Component {
     handleFormAddress = (e) => {
         e.preventDefault();
         const address = this.state.address
-        this.service.edit_parent(this.state.loggedInUser._id, address)
+        this.service.edit_address(this.state.loggedInUser._id, address)
         .then(response=>{
             this.setState({
                 address: ''
@@ -60,7 +60,7 @@ class Profile extends Component {
     handleFormPhone = (e) => {
         e.preventDefault();
         const phone = this.state.phone
-        this.service.edit_parent(this.state.loggedInUser._id, phone)
+        this.service.edit_phone(this.state.loggedInUser._id, phone)
         .then(response=>{
             this.setState({
                 phone: ''
@@ -88,7 +88,14 @@ class Profile extends Component {
 
     handleChange = (e) => {
         const {name, value} = e.target;
-        this.setState({[name]: value, lunch: e.target.checked, morning: e.target.checked });
+        if (name === 'lunch'){
+           this.setState({[name]: value, lunch: e.target.checked }); 
+        } else if(name === 'morning'){
+            this.setState({[name]: value, morning: e.target.checked }); 
+        } else{
+            this.setState({[name]: value});
+        }
+        
       }
 
     render(){
