@@ -52,7 +52,8 @@ class Profile extends Component {
             this.setState({
                 address: ''
             })
-            this.fetchUser()
+            this.props.getTheUser()
+            // this.fetchUser()
             })
             .catch(err => console.log(err))
     }
@@ -65,11 +66,18 @@ class Profile extends Component {
             this.setState({
                 phone: ''
             })
+            this.props.getTheUser()
             console.log(response)
-            this.fetchUser()
+            // this.fetchUser()
             })
             .catch(err => console.log(err))
     }
+
+    // getTheUser= (userObj) => {
+    //     this.setState({
+    //       loggedInUser: userObj
+    //     })
+    //   }
 
     fetchUser(){
           this.service.loggedin()
