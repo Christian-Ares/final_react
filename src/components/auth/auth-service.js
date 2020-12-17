@@ -3,9 +3,9 @@ import axios from 'axios';
 class AuthService {
   constructor() {
     let service = axios.create({
-      // baseURL: 'http://localhost:3000',
+      baseURL: 'http://localhost:3000',
 
-      baseURL: 'https://escuela-infantil.herokuapp.com/',
+      // baseURL: 'https://escuela-infantil.herokuapp.com/',
       withCredentials: true
     });
     this.service = service;
@@ -43,6 +43,12 @@ class AuthService {
 
   edit_phone = (id, phone) => {
     return this.service.post(`/edit_phone/${id}`, phone)
+    .then(response => response.data)
+  }
+
+  get_child = (id) => {
+    return this.service.get(`/children/${id}`)
+    
     .then(response => response.data)
   }
 

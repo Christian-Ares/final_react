@@ -19,7 +19,9 @@ class App extends React.Component {
 
   constructor(props){
     super(props)
-    this.state = { loggedInUser: null };
+    this.state = { 
+      loggedInUser: null,
+    };
     this.service = new AuthService();
   }
 

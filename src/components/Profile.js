@@ -14,13 +14,25 @@ class Profile extends Component {
             morning: false,
             loggedInUser: this.props.loggedInUser,
             address: '',
-            phone: '' }
+            phone: '' ,
+            childrens: null
+        }
         this.service = new AuthService();
     }
 
     componentDidMount = () => {
         const { address, phone} = this.props.loggedInUser
         this.setState({ address, phone })
+        this.service.get_child(this.props.loggedInUser._id)
+        .then(response=>{
+            console.log(response)
+            this.setState({
+                childrens: response
+            })
+        })
+        .catch(err=>{
+            console.log(err)
+        })
     }
 
     handleFormSubmit = (e) => {
@@ -47,6 +59,22 @@ class Profile extends Component {
     .catch( error => console.log(error) )
     }
 
+   renderChilds = () => {
+       console.log(this.state.childrens)
+       return this.state.childrens.map((children, index)=>{
+           return (
+
+            <div className="card" key={index}>
+            <h3>Nombre: {children.name}</h3>
+            <h3>Apellidos: {children.lastName}</h3>
+            <h3>Género: {children.genre}</h3>
+            <h3>Fecha de nacimiento: {children.birth}</h3>
+
+        </div>
+           )
+       })
+    }
+    
     handleFormAddress = (e) => {
         e.preventDefault();
         const address = this.state.address
@@ -60,6 +88,7 @@ class Profile extends Component {
             })
             .catch(err => console.log(err))
     }
+
     handleFormPhone = (e) => {
         e.preventDefault();
         const phone = this.state.phone
@@ -68,8 +97,8 @@ class Profile extends Component {
             this.setState({
                 newPhone: phone
             })
-            // this.props.getTheUser(this.props.loggedInUser)
-            console.log(response)
+            const editedPhone = {...this.props.loggedInUser, phone: this.state.newPhone}
+            this.props.getTheUser(editedPhone)
             })
             .catch(err => console.log(err))
     }
@@ -88,6 +117,7 @@ class Profile extends Component {
             }) 
           })
       }
+
     handleChange = (e) => {
         const {name, value} = e.target;
         if (name === 'lunch'){
@@ -98,6 +128,7 @@ class Profile extends Component {
             this.setState({[name]: value});
         }
       }
+
     render(){
         return (
             <div>
@@ -110,7 +141,6 @@ class Profile extends Component {
                         <input
                         type="text"
                         name="address"
-                        value={this.state.address}
                         onChange={(e)=>this.handleChange(e)}
                         />
                     <button type="submit">Editar direccion</button>
@@ -120,7 +150,6 @@ class Profile extends Component {
                     <input
                     type="text"
                     name="phone"
-                    value={this.state.phone}
                     onChange={(e)=>this.handleChange(e)}
                     />
                 <button type="submit">Editar teléfono</button>
@@ -178,8 +207,15 @@ class Profile extends Component {
                     <br/>
                     <button type="submit">Añadir niño</button>
                 </form>
+
+                <br/>
+
+
+                {this.state.childrens && this.renderChilds()}
+
             </div>
         )
     }
 }
+
 export default Profile;
