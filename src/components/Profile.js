@@ -55,8 +55,8 @@ class Profile extends Component {
             this.setState({
                 newAddress: address
             })
-            // console.log(this.props.getTheUser(this.props.loggedInUser))
-            return this.props.getTheUser(this.props.loggedInUser)
+            const editedUser = {...this.props.loggedInUser, address: this.state.newAddress}
+            this.props.getTheUser(editedUser)
             })
             .catch(err => console.log(err))
     }
