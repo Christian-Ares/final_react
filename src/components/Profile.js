@@ -31,7 +31,7 @@ class Profile extends Component {
         const birth = this.state.birth;
         const lunch = this.state.lunch;
         const morning = this.state.morning;
-        
+
     this.service.add_child(name, lastName, gender, birth, lunch, morning, this.props.loggedInUser._id)
     .then( response => {
         this.setState({
@@ -41,8 +41,6 @@ class Profile extends Component {
             birth: "",
             lunch: false,
             morning: false,
-            newAddress: '',
-            newPhone:'',
         });
         console.log(response)
     })
@@ -57,7 +55,7 @@ class Profile extends Component {
             this.setState({
                 newAddress: address
             })
-            console.log(this.props.getTheUser(this.props.loggedInUser))
+            // console.log(this.props.getTheUser(this.props.loggedInUser))
             return this.props.getTheUser(this.props.loggedInUser)
             })
             .catch(err => console.log(err))
@@ -75,11 +73,7 @@ class Profile extends Component {
             })
             .catch(err => console.log(err))
     }
-    // getTheUser= (userObj) => {
-    //     this.setState({
-    //       loggedInUser: userObj
-    //     })
-    //   }
+   
     fetchUser(){
           this.service.loggedin()
           .then(response =>{
