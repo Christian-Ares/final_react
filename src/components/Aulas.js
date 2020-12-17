@@ -6,9 +6,32 @@ const Aulas = () => {
       <div>
        
         <h1>Aquí vemos todas las aulas</h1>
-        <p>0-1</p>
-        <p>1-2</p>
-        <p>2-3</p>
+
+        <br/>
+        <div className="card">
+        <h2>0-1</h2>
+        <h2>Nombre del aula</h2>
+        <h2>Profesor a cargo</h2>
+        <h2>Qué se trabaja</h2>
+        </div>
+
+        <br/>
+        <div className="card">
+        <h2>1-2</h2>
+        <h2>Nombre del aula</h2>
+        <h2>Profesor a cargo</h2>
+        <h2>Qué se trabaja</h2>
+        </div>
+
+        <br/>
+        <div className="card">
+        <h2>2-3</h2>
+        <h2>Nombre del aula</h2>
+        <h2>Profesor a cargo</h2>
+        <h2>Qué se trabaja</h2>
+        </div>
+
+        <br/>
         
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css'
+import '../styles/Home.css'
 // import Carousel from 'react-bootstrap/Carousel'
 
 const Home = () => {

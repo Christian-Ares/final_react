@@ -31,8 +31,8 @@ class AuthService {
     .then(response => response.data)
   }
 
-  add_child = (name, lastName, gender, birth, lunch, morning) =>{
-    return this.service.post("/add_child", { name, lastName, gender, birth, lunch, morning })
+  add_child = (name, lastName, gender, birth, lunch, morning, userId) =>{
+    return this.service.post("/add_child", { name, lastName, gender, birth, lunch, morning, userId })
     .then(response => response.data)
   }
 

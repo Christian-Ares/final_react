@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import AuthService from './auth/auth-service';
-import './NavBar.css'
+import '../styles/NavBar.css'
 // import Navbar from 'react-bootstrap/Navbar'
 // import Button from 'react-bootstrap/Button'
 // import FormControl from 'react-bootstrap/FormControl'

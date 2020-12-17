@@ -3,7 +3,6 @@ import { Component } from 'react';
 import AuthService from './auth/auth-service';
 
 class Profile extends Component {
-    
     constructor(props){
         super(props);
         this.state = {
@@ -19,6 +18,11 @@ class Profile extends Component {
         this.service = new AuthService();
     }
 
+    componentDidMount = () => {
+        const { address, phone} = this.props.loggedInUser
+        this.setState({ address, phone })
+    }
+
     handleFormSubmit = (e) => {
         e.preventDefault();
         const name = this.state.name;
@@ -27,9 +31,8 @@ class Profile extends Component {
         const birth = this.state.birth;
         const lunch = this.state.lunch;
         const morning = this.state.morning;
-   
-
-    this.service.add_child(name, lastName, gender, birth, lunch, morning)
+        
+    this.service.add_child(name, lastName, gender, birth, lunch, morning, this.props.loggedInUser._id)
     .then( response => {
         this.setState({
             name: "",
@@ -37,48 +40,46 @@ class Profile extends Component {
             gender: "",
             birth: "",
             lunch: false,
-            morning: false
+            morning: false,
+            newAddress: '',
+            newPhone:'',
         });
         console.log(response)
     })
     .catch( error => console.log(error) )
     }
-    
+
     handleFormAddress = (e) => {
         e.preventDefault();
         const address = this.state.address
         this.service.edit_address(this.state.loggedInUser._id, {address})
         .then(response=>{
             this.setState({
-                address: ''
+                newAddress: address
             })
-            this.props.getTheUser()
-            // this.fetchUser()
+            console.log(this.props.getTheUser(this.props.loggedInUser))
+            return this.props.getTheUser(this.props.loggedInUser)
             })
             .catch(err => console.log(err))
     }
-
     handleFormPhone = (e) => {
         e.preventDefault();
         const phone = this.state.phone
         this.service.edit_phone(this.state.loggedInUser._id, {phone})
         .then(response=>{
             this.setState({
-                phone: ''
+                newPhone: phone
             })
-            this.props.getTheUser()
+            // this.props.getTheUser(this.props.loggedInUser)
             console.log(response)
-            // this.fetchUser()
             })
             .catch(err => console.log(err))
     }
-
     // getTheUser= (userObj) => {
     //     this.setState({
     //       loggedInUser: userObj
     //     })
     //   }
-
     fetchUser(){
           this.service.loggedin()
           .then(response =>{
@@ -93,7 +94,6 @@ class Profile extends Component {
             }) 
           })
       }
-
     handleChange = (e) => {
         const {name, value} = e.target;
         if (name === 'lunch'){
@@ -103,19 +103,15 @@ class Profile extends Component {
         } else{
             this.setState({[name]: value});
         }
-        
       }
-
     render(){
         return (
             <div>
                 <h1>Bienvenido, {this.state.loggedInUser.name}</h1>
                 <h2>{this.state.loggedInUser.lastName}</h2>
-                <h2>{this.state.loggedInUser.address}</h2>
-                <h2>{this.state.loggedInUser.phone}</h2>
-
-                <form onSubmit={this.handleFormAddress}>
-                
+                {this.state.newAddress ? <h2>{this.state.newAddress}</h2> : <h2>{this.props.loggedInUser.address}</h2>}
+                {this.state.newPhone ? <h2>{this.state.newPhone}</h2> : <h2>{this.props.loggedInUser.phone}</h2>}
+                <form onSubmit={e => this.handleFormAddress(e)}>
                     <label htmlFor="address">Direccion:</label>
                         <input
                         type="text"
@@ -123,13 +119,9 @@ class Profile extends Component {
                         value={this.state.address}
                         onChange={(e)=>this.handleChange(e)}
                         />
-
                     <button type="submit">Editar direccion</button>
-
                 </form>
-
-                <form onSubmit={this.handleFormPhone}>
-                
+                <form onSubmit={e => this.handleFormPhone(e)}>
                 <label htmlFor="phone">Teléfono:</label>
                     <input
                     type="text"
@@ -137,17 +129,11 @@ class Profile extends Component {
                     value={this.state.phone}
                     onChange={(e)=>this.handleChange(e)}
                     />
-
                 <button type="submit">Editar teléfono</button>
-
                 </form>
-
                 <br/>
-
                 <form onSubmit={this.handleFormSubmit}>
-
                 <br/>
-
                     <label htmlFor="name">Nombre:</label>
                     <input
                     type="text"
@@ -155,9 +141,7 @@ class Profile extends Component {
                     value={this.state.name}
                     onChange={(e)=>this.handleChange(e)}
                     />
-
                     <br/>
-
                     <label htmlFor="lastName">Apellidos:</label>
                     <input
                     type="text"
@@ -165,9 +149,7 @@ class Profile extends Component {
                     value={this.state.lastName}
                     onChange={(e)=>this.handleChange(e)}
                     />
-
                     <br/>
-
                     <label htmlFor="gender">Género:</label>
                     <input
                     type="text"
@@ -175,9 +157,7 @@ class Profile extends Component {
                     value={this.state.gender}
                     onChange={(e)=>this.handleChange(e)}
                     />
-
                     <br/>
-
                     <label htmlFor="birth">Nacimiento:</label>
                     <input
                     type="date"
@@ -185,9 +165,7 @@ class Profile extends Component {
                     value={this.state.birth}
                     onChange={(e)=>this.handleChange(e)}
                     />
-
                     <br/>
-
                     <label htmlFor="lunch">Servicio de comedor:</label>
                     <input
                     type="checkbox"
@@ -195,24 +173,17 @@ class Profile extends Component {
                     value={this.state.lunch}
                     onChange={(e)=>this.handleChange(e)}
                     />
-
                     <br/>
-
                     <label htmlFor="morning">Servicio de buenos días cole:</label>
-                    
                     <input
                     type="checkbox"
                     name="morning"
                     value={this.state.morning}
                     onChange={(e)=>this.handleChange(e)}
                     />
-
                     <br/>
-
                     <button type="submit">Añadir niño</button>
-
                 </form>
-
             </div>
         )
     }
