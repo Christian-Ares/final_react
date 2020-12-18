@@ -137,9 +137,14 @@ class Profile extends Component {
         return (
             <div>
                 <h1>Bienvenido, {this.state.loggedInUser.name}</h1>
-                <h2>Dirección actual:</h2> {this.state.newAddress ? <h2>{this.state.newAddress}</h2> : <h2>{this.props.loggedInUser.address}</h2>}
-                <h2>Teléfono actual:</h2> {this.state.newPhone ? <h2>{this.state.newPhone}</h2> : <h2>{this.props.loggedInUser.phone}</h2>}
 
+                <div class="data-content">
+                <h2>Dirección actual:</h2> {this.state.newAddress ? <h2>{this.state.newAddress}</h2> : <h2>{this.props.loggedInUser.address}</h2>}
+                </div>
+
+                <div class="data-content">
+                <h2>Teléfono actual:</h2> {this.state.newPhone ? <h2>{this.state.newPhone}</h2> : <h2>{this.props.loggedInUser.phone}</h2>}
+                </div>
                 <div id="profile-form">
                     <div class="columna-formulario">
                         <form onSubmit={e => this.handleFormAddress(e)}>

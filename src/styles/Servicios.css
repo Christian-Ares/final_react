@@ -1,0 +1,9 @@
+.clear {
+    clear: both;
+  }
+  
+  .wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }

@@ -6,11 +6,14 @@ const Contacto = () => {
     <div>
       <div>
        
-        <h1>Aquí telefono del colegio, email, ubicacion, y distintos papeles</h1>
-        <h2>(+34) - 651-504-840</h2>
-        <h2>christianaresvillan@hotmail.com</h2>
+        <h1>Cómo contactar</h1>
+        <div class="">
+          <div class="card">
+          <h2>Teléfono: (+34) - 651-504-840</h2>
+          <h2>Email: christianaresvillan@hotmail.com</h2>
+          </div>
+        </div> 
         <br/>
-          {/* <button><a href='#'>Documento</a></button> */}
         <br/>
         <iframe
          width="425"

@@ -71,3 +71,14 @@
     padding: 1em;
     background-color:rgba(250, 235, 215,.7);
 }
+
+.data-content{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 1%;
+    padding: 1em;
+    background-color:rgba(250, 235, 215,.7);
+    align-items: center;
+    width: fit-content;
+}

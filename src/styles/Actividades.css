@@ -20,7 +20,7 @@
   padding: 1em;
   border: none;
   width: fit-content;
-  background-color: antiquewhite;
+  transition: 0.3s;
 }
 
 
@@ -36,5 +36,5 @@
   border: 1px solid rgba(0,0,0,.125);
   border-radius: 1%;
   padding: 1em;
-
+  background-color: antiquewhite;
 }
