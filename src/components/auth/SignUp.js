@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AuthService from './auth-service.js'
+import './SignUp.css'
 
 class SignUp extends Component {
   constructor(props){
@@ -39,73 +40,75 @@ class SignUp extends Component {
 
   render(){
           return(
-        <div>
-          <h2>Sign Up</h2>
-          <form onSubmit={this.handleFormSubmit}>
+        <div class="signup-card">
+          <div class="signup-content">
+            <h2>Sign Up</h2>
+            <form onSubmit={this.handleFormSubmit}>
 
-            <label htmlFor="name">Nombre: </label>
-            <input 
-              type="text" 
-              name="name" 
-              value={this.state.name} 
-              onChange={(event)=>this.handleChange(event)}
-            />
+              <label htmlFor="name">Nombre: </label>
+              <input 
+                type="text" 
+                name="name" 
+                value={this.state.name} 
+                onChange={(event)=>this.handleChange(event)}
+              />
 
-<br/>
+  <br/>
 
-            <label htmlFor="lastName">Apellidos: </label>
-            <input 
-              type="text" 
-              name="lastName" 
-              value={this.state.lastName} 
-              onChange={(event)=>this.handleChange(event)}
-            />
+              <label htmlFor="lastName">Apellidos: </label>
+              <input 
+                type="text" 
+                name="lastName" 
+                value={this.state.lastName} 
+                onChange={(event)=>this.handleChange(event)}
+              />
 
-<br/>
+  <br/>
 
-            <label htmlFor="address">Dirección: </label>
-            <input 
-              type="text" 
-              name="address" 
-              value={this.state.address} 
-              onChange={(event)=>this.handleChange(event)}
-            />
+              <label htmlFor="address">Dirección: </label>
+              <input 
+                type="text" 
+                name="address" 
+                value={this.state.address} 
+                onChange={(event)=>this.handleChange(event)}
+              />
 
-<br/>
+  <br/>
 
-            <label htmlFor="phone">Teléfono: </label>
-            <input 
-              type="text" 
-              name="phone" 
-              value={this.state.phone} 
-              onChange={(event)=>this.handleChange(event)}
-            />
+              <label htmlFor="phone">Teléfono: </label>
+              <input 
+                type="text" 
+                name="phone" 
+                value={this.state.phone} 
+                onChange={(event)=>this.handleChange(event)}
+              />
 
-<br/>
+  <br/>
 
-            <label htmlFor="username">Usuario: </label>
-            <input 
-              type="text" 
-              name="username" 
-              value={this.state.username} 
-              onChange={(event)=>this.handleChange(event)}
-            />
+              <label htmlFor="username">Usuario: </label>
+              <input 
+                type="text" 
+                name="username" 
+                value={this.state.username} 
+                onChange={(event)=>this.handleChange(event)}
+              />
 
-<br/>
+  <br/>
 
-            <label htmlFor="password">Contraseña: </label>
-            <input 
-              type="password" 
-              name="password" 
-              value={this.state.password} 
-              onChange={(event)=>this.handleChange(event)}
-            />
+              <label htmlFor="password">Contraseña: </label>
+              <input 
+                type="password" 
+                name="password" 
+                value={this.state.password} 
+                onChange={(event)=>this.handleChange(event)}
+              />
 
-<br/>
+  <br/>
 
-            <button type="submit">Crear Usuario</button>
+              <button type="submit">Crear Usuario</button>
 
-          </form>
+            </form>
+            </div>
         </div>
       )
     }

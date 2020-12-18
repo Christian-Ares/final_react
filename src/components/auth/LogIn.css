@@ -1,0 +1,33 @@
+.clear {
+    clear: both;
+  }
+  
+  .wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+.divider {
+    height: 2px;
+    padding: 0 1em;
+    background-color: #efefef;
+  }
+  
+  .login-card{
+    padding: 1em;
+    flex: 100%;
+    padding: 1em;
+    border: none;
+    width: fit-content;
+    transition: 0.3s;
+  }
+  
+  .login-content {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 1%;
+    padding: 1em;
+    background-color: antiquewhite;
+  }
