@@ -20,7 +20,7 @@ const Actividades = () => {
     {
       titulo: 'Feliz Navidad',
       profesor: 'Ana',
-      fecha: 'Viernes 25 de Dicmebre, desde las 10:00 hasta las 13:00',
+      fecha: 'Viernes 25 de Dicimebre, desde las 10:00 hasta las 13:00',
       descripcion: 'Con los más mayores, haremos algunos dibujos y regalos para darle a los papis por navidad!',
       instrucciones: 'Para apuntarse, llamar al telefono que aparece en la pestaña de contacto, o mandar un mail.'
     }

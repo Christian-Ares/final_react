@@ -43,7 +43,7 @@ const Cursos = () => {
           <div class="cursos-content">
             <h3>Hábitos de un buen padre</h3>
             <div class="divider"></div>
-            <h3>Especialista en patenridad, Pablo Sande</h3>
+            <h3>Especialista en paternidad, Pablo Sande</h3>
             <div class="divider"></div>
             <h3>Viernes 25, a las 17:00</h3>
             <div class="divider"></div>

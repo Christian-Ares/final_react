@@ -69,7 +69,7 @@ class Profile extends Component {
                         <div class="divider"></div>
                         <p><strong>Apellidos:</strong> {children.lastName}</p>
                         <div class="divider"></div>
-                        <p><strong>Género:</strong> {children.genre}</p>
+                        <p><strong>Género:</strong> {children.gender}</p>
                         <div class="divider"></div>
                         <p><strong>Fecha de nacimiento:</strong> {children.birth}</p>
                     </div>
