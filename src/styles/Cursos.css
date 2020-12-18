@@ -1,16 +1,40 @@
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    transition: 0.3s;
-    border-radius: 5px;
-    width: fit-content;
-    background-color:antiquewhite;
-    text-decoration: none;
-    padding: 1rem;
-    margin: 0 2rem;
-  }
+.clear {
+  clear: both;
+}
 
-  .divider {
-    height: 2px;
-    padding: 0 1em;
-    background-color: #efefef;
-  }
+.wrap{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.divider {
+  height: 2px;
+  padding: 0 1em;
+  background-color: #efefef;
+}
+
+.cursos-card{
+  padding: 1em;
+  flex: 100%;
+  padding: 1em;
+  border: none;
+  width: fit-content;
+  transition: 0.3s;
+}
+
+
+.cursos-content p{
+  margin: 0;
+  font-size: 1.8em;
+  padding: 0.4em 0.5em;
+}
+
+.cursos-content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 1%;
+  padding: 1em;
+  background-color: antiquewhite;
+}
