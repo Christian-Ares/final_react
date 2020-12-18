@@ -17,7 +17,7 @@ const Aulas = () => {
             <div class="divider"></div>
             <h2>Ana</h2>
             <div class="divider"></div>
-            <h2>Psicomotridad gruesa</h2>
+            <h2>Motricidad gruesa, desarrollo</h2>
           </div>
         </div>
 
@@ -32,7 +32,7 @@ const Aulas = () => {
             <div class="divider"></div>
             <h2>Andrea</h2>
             <div class="divider"></div>
-            <h2>Qué se trabaja</h2>
+            <h2>Motricidad gruesa y fina, sentidos, etc...</h2>
           </div>
         </div>
 
@@ -46,7 +46,7 @@ const Aulas = () => {
             <div class="divider"></div>
             <h2>Emilio</h2>
             <div class="divider"></div>
-            <h2>Psicomotricidad fina, psicología</h2>
+            <h2>Psicomotricidad fina, psicología, emociones, etc...</h2>
           </div>
         </div>
 
