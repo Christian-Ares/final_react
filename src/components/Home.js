@@ -49,7 +49,7 @@ class Home extends Component {
                         <img src={profe.Img} alt={profe.nombre} width="auto" height="350px"></img>
                         <p><strong>Nombre:</strong> {profe.nombre}</p>
                         <div class="divider"></div>
-                        <p><strong>Educación:</strong> {profe.educacion}</p>
+                        <p><strong>Estudios:</strong> {profe.educacion}</p>
                         <div class="divider"></div>
                         <p><strong>Especialidad:</strong> {profe.especialidad}</p>
                       </div>
