@@ -104,6 +104,7 @@ class SignUp extends Component {
               />
 
   <br/>
+            <p>* La contraseña tiene que tener mínimo 12 caracteres</p>
 
               <button type="submit">Crear Usuario</button>
 
