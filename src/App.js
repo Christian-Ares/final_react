@@ -51,10 +51,10 @@ class App extends React.Component {
     this.fetchUser()
       return (
         <div className="App">
-          <NavBar userInSession={this.state.loggedInUser} getTheUser={this.getTheUser} />
+          <NavBar userInSession={this.state.loggedInUser} getTheUser={this.getTheUser}/>
 
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact path='/' render={() => <Home loggedInUser={this.state.loggedInUser}/>} />
             <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/aulas' component={Aulas} />
             <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/actividades' component={Actividades} />
             <ProtectedRoute userInSession={this.state.loggedInUser} exact path='/cursos' component={Cursos} />

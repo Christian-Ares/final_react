@@ -1,11 +1,10 @@
-  
-import React, { Component } from 'react'
+  import React, { Component } from 'react'
 import AuthService from './auth-service';
 
 class LogIn extends Component {
   constructor(props){
     super(props);
-    this.state = { username: '', password: '' };
+    this.state = { username: '', password: '', error: '' };
     this.service = new AuthService();
   }
 
@@ -15,10 +14,10 @@ class LogIn extends Component {
     const password = this.state.password;
     this.service.login(username, password)
     .then( response => {
-        this.setState({ username: "", password: "" });
+        this.setState({ username: "", password: "", error: "" });
         this.props.getUser(response)
     })
-    .catch( error => console.log(error) )
+    .catch( this.setState({error: "El usuario o la contraseña son incorrectos"}) )
   }
     
   handleChange = (event) => {  
@@ -26,7 +25,6 @@ class LogIn extends Component {
     this.setState({[name]: value});
   }
   
-
   render(){
         return(
       <div>
@@ -54,8 +52,9 @@ class LogIn extends Component {
           <br/>
 
           <button type="submit">Log In</button>
-
         </form>
+
+        <div>{this.state.error}</div>
       </div>
     )
   }

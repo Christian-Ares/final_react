@@ -1,39 +1,68 @@
 nav{
-    width: 100vw;
-    background: rgb(2,0,36);
-    background: linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-  }
-  
-  ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  li{
-    float: left;
-  }
+  width: 100vw;
+  background: rgb(2,0,36);
+  background: linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+  min-height: 70px;
+}
 
-  li a{
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 1.3rem;
-  }
-  
-  li a:hover{
-    background-color: #111;
-  }
-
-  .logs{
-    float: right;
-  }
-
-  .logs a:hover{
-    background-color: rgb(2, 253, 199);
-  }
+ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  clear: left;
+}
 
 
+li{
+  float: left;
+}
+
+.elemento-menu {
+  width: 100%;
+}
+
+@media(min-width: 765px) {
+  ul {
+    clear: none;
+  }
+
+  .elemento-menu {
+    width: auto;
+  }
+}
+
+#menu-mostrar-boton {
+  padding: 1em;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.3rem;
+  float: left;
+}
+
+a:link, a:visited, a:active{
+  text-decoration: none;
+}
+
+li a{
+  display: block;
+  color: white;
+  text-align: left;
+  padding: 1em;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+li a:hover{
+  background-color: #111;
+}
+
+.logs{
+  float: right;
+}
+
+.logs a:hover{
+  background-color: rgb(2, 253, 199);
+}

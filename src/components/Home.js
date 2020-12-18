@@ -1,52 +1,70 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../styles/Home.css'
-// import Carousel from 'react-bootstrap/Carousel'
+import anaImg from '../Teachers/Ana.jpeg';
+import andreaImg from '../Teachers/Andrea.jpeg';
+import emilioImg from '../Teachers/Emilio.jpeg';
 
-const Home = () => {
-  return (
 
-        <div>
-        <h1>Welcome to Home</h1>
-{/* 
-    <Carousel>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="https://as.com/meristation/imagenes/2020/05/03/reportajes/1588497460_754554_1588498323_noticia_normal.jpg"
-      alt="First slide"
-    />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8wTfAhDh9E6En61Ww5SfqMxYdX7n9lspKlg&usqp=CAU"
-      alt="Third slide"
-    />
+class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = {...this.state, loggedInUser:this.props.loggedInUser};
+  }
+  
+  render () {
+    const profesores = [
+      {
+        nombre: "Ana",
+        Img: anaImg,
+        educacion: "Maestra de Educación Infantil",
+        especialidad: "Especialista en Psicología infantil"
+      },
+      {
+        nombre: "Andrea",
+        Img: andreaImg,
+        educacion: "Maestra de Educación Infantil",
+        especialidad: " Especialista en Transtornos del lenguaje"
+      },
+      {
+        nombre: "Emilio",
+        Img: emilioImg,
+        educacion: "Maestro de Educación Infantil",
+        especialidad: "Especialista en Autismo Infantil"
+      },
 
-    <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAUraHATKJaZxJhe2iB66zrLKxxuFrJ9wHsA&usqp=CAU"
-      alt="Third slide"
-    />
+    ];
 
-    <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel> */}
-    </div>
-  )
+    return (
+      <div class="home">
+        {this.props.loggedInUser ?
+          <div class="wrapper">
+            <h1>Nuestros profesores</h1>
+
+            <div class="profesores-wrapper">
+              {
+                profesores.map((profe, index) => {
+                  return(
+                    <div class="card" key={index}>
+                      <div class="card-content">
+                        <img src={profe.Img} alt={profe.nombre} width="auto" height="350px"></img>
+                        <p><strong>Nombre:</strong> {profe.nombre}</p>
+                        <div class="divider"></div>
+                        <p><strong>Educación:</strong> {profe.educacion}</p>
+                        <div class="divider"></div>
+                        <p><strong>Especialidad:</strong> {profe.especialidad}</p>
+                      </div>
+                    </div>
+                    ) 
+                  }
+                )
+              }
+            </div> 
+          </div> 
+          : null
+        }
+      </div>
+    )
+  }
 }
 
 export default Home;

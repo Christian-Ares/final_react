@@ -1,5 +1,6 @@
 import React from 'react';
 import { Component } from 'react';
+import '../styles/Profile.css';
 import AuthService from './auth/auth-service';
 
 class Profile extends Component {
@@ -25,7 +26,6 @@ class Profile extends Component {
         this.setState({ address, phone })
         this.service.get_child(this.props.loggedInUser._id)
         .then(response=>{
-            console.log(response)
             this.setState({
                 childrens: response
             })
@@ -60,17 +60,21 @@ class Profile extends Component {
     }
 
    renderChilds = () => {
-       console.log(this.state.childrens)
        return this.state.childrens.map((children, index)=>{
            return (
-
-            <div className="card" key={index}>
-            <h3>Nombre: {children.name}</h3>
-            <h3>Apellidos: {children.lastName}</h3>
-            <h3>Género: {children.genre}</h3>
-            <h3>Fecha de nacimiento: {children.birth}</h3>
-
-        </div>
+            <div class="wrap" key={index}>
+                <div className="child-card" >
+                    <div class="child-content">
+                        <p><strong>Nombre:</strong> {children.name}</p>
+                        <div class="divider"></div>
+                        <p><strong>Apellidos:</strong> {children.lastName}</p>
+                        <div class="divider"></div>
+                        <p><strong>Género:</strong> {children.genre}</p>
+                        <div class="divider"></div>
+                        <p><strong>Fecha de nacimiento:</strong> {children.birth}</p>
+                    </div>
+                </div>
+            </div>
            )
        })
     }
@@ -133,84 +137,109 @@ class Profile extends Component {
         return (
             <div>
                 <h1>Bienvenido, {this.state.loggedInUser.name}</h1>
-                <h2>{this.state.loggedInUser.lastName}</h2>
-                {this.state.newAddress ? <h2>{this.state.newAddress}</h2> : <h2>{this.props.loggedInUser.address}</h2>}
-                {this.state.newPhone ? <h2>{this.state.newPhone}</h2> : <h2>{this.props.loggedInUser.phone}</h2>}
-                <form onSubmit={e => this.handleFormAddress(e)}>
-                    <label htmlFor="address">Direccion:</label>
+                <h2>Dirección actual:</h2> {this.state.newAddress ? <h2>{this.state.newAddress}</h2> : <h2>{this.props.loggedInUser.address}</h2>}
+                <h2>Teléfono actual:</h2> {this.state.newPhone ? <h2>{this.state.newPhone}</h2> : <h2>{this.props.loggedInUser.phone}</h2>}
+
+                <div id="profile-form">
+                    <div class="columna-formulario">
+                        <form onSubmit={e => this.handleFormAddress(e)}>
+                            <label class="form-label" htmlFor="address">Direccion:</label>
+                            <input
+                                type="text"
+                                name="address"
+                                onChange={(e)=>this.handleChange(e)}
+                            />
+                            <button type="submit" class="submit-button">Editar direccion</button>
+                        </form>
+                    </div>
+
+                    <div class="columna-formulario">
+                        <form onSubmit={e => this.handleFormPhone(e)}>
+                        <label class="form-label" htmlFor="phone">Teléfono:</label>
                         <input
-                        type="text"
-                        name="address"
-                        onChange={(e)=>this.handleChange(e)}
+                            type="text"
+                            name="phone"
+                            onChange={(e)=>this.handleChange(e)}
                         />
-                    <button type="submit">Editar direccion</button>
-                </form>
-                <form onSubmit={e => this.handleFormPhone(e)}>
-                <label htmlFor="phone">Teléfono:</label>
-                    <input
-                    type="text"
-                    name="phone"
-                    onChange={(e)=>this.handleChange(e)}
-                    />
-                <button type="submit">Editar teléfono</button>
-                </form>
-                <br/>
-                <form onSubmit={this.handleFormSubmit}>
-                <br/>
-                    <label htmlFor="name">Nombre:</label>
-                    <input
-                    type="text"
-                    name="name"
-                    value={this.state.name}
-                    onChange={(e)=>this.handleChange(e)}
-                    />
-                    <br/>
-                    <label htmlFor="lastName">Apellidos:</label>
-                    <input
-                    type="text"
-                    name="lastName"
-                    value={this.state.lastName}
-                    onChange={(e)=>this.handleChange(e)}
-                    />
-                    <br/>
-                    <label htmlFor="gender">Género:</label>
-                    <input
-                    type="text"
-                    name="gender"
-                    value={this.state.gender}
-                    onChange={(e)=>this.handleChange(e)}
-                    />
-                    <br/>
-                    <label htmlFor="birth">Nacimiento:</label>
-                    <input
-                    type="date"
-                    name="birth"
-                    value={this.state.birth}
-                    onChange={(e)=>this.handleChange(e)}
-                    />
-                    <br/>
-                    <label htmlFor="lunch">Servicio de comedor:</label>
-                    <input
-                    type="checkbox"
-                    name="lunch"
-                    value={this.state.lunch}
-                    onChange={(e)=>this.handleChange(e)}
-                    />
-                    <br/>
-                    <label htmlFor="morning">Servicio de buenos días cole:</label>
-                    <input
-                    type="checkbox"
-                    name="morning"
-                    value={this.state.morning}
-                    onChange={(e)=>this.handleChange(e)}
-                    />
-                    <br/>
-                    <button type="submit">Añadir niño</button>
-                </form>
+                        <button type="submit" class="submit-button">Editar teléfono</button>
+                        </form>
+                    </div>
 
-                <br/>
+                    <div class="columna-formulario">
+                        
+                    <form onSubmit={this.handleFormSubmit}>
+                        <div class="columna-formulario">
+                            <label class="form-label" htmlFor="name">Nombre:</label>
+                            <input
+                                type="text"
+                                name="name"
+                                value={this.state.name}
+                                onChange={(e)=>this.handleChange(e)}
+                            />
+                            <div class="submit-button"></div>
+                        </div>
 
+                        <div class="columna-formulario">
+                            <label class="form-label" htmlFor="lastName">Apellidos:</label>
+                            <input
+                                type="text"
+                                name="lastName"
+                                value={this.state.lastName}
+                                onChange={(e)=>this.handleChange(e)}
+                            />
+                            <div class="submit-button"></div>
+                        </div>
 
+                        <div class="columna-formulario">
+                            <label class="form-label" htmlFor="gender">Género:</label>
+                            <input
+                                type="text"
+                                name="gender"
+                                value={this.state.gender}
+                                onChange={(e)=>this.handleChange(e)}
+                            />
+                            <div class="submit-button"></div>
+                        </div>
+
+                        <div class="columna-formulario">
+                            <label class="form-label" htmlFor="birth">Nacimiento:</label>
+                            <input
+                                type="date"
+                                name="birth"
+                                value={this.state.birth}
+                                onChange={(e)=>this.handleChange(e)}
+                            />
+                            <div class="submit-button"></div>
+                        </div>
+
+                        <div class="columna-formulario">
+                            <label class="form-label" htmlFor="lunch">Servicio de comedor:</label>
+                            <input
+                                type="checkbox"
+                                name="lunch"
+                                value={this.state.lunch}
+                                onChange={(e)=>this.handleChange(e)}
+                            />
+                            <div class="submit-button"></div>
+                        </div>
+                        
+                        <div>
+                            <label class="form-label" htmlFor="morning">Servicio de buenos días cole:</label>
+                            <input
+                                type="checkbox"
+                                name="morning"
+                                value={this.state.morning}
+                                onChange={(e)=>this.handleChange(e)}
+                            />
+                            <button type="submit" class="submit-button">Añadir</button>
+                        </div>
+                    </form>
+                    </div>
+
+                    <br/>
+                </div>
+
+                <div class="clear"></div>
                 {this.state.childrens && this.renderChilds()}
 
             </div>
